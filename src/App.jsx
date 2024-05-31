@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
-import reactLogo from "./assets/react.svg";
 import Editor from "@monaco-editor/react";
 import "./App.css";
 
+//The language that you want to write your into.
 const files = {
   "script.py": {
     name: "script.py",
@@ -17,14 +17,17 @@ const files = {
 };
 
 function App() {
+  //State to manage the filename
   const [fileName, setFileName] = useState("script.py"); // change to "index.html"
   const editorRef = useRef(null);
   const file = files[fileName];
 
+  //Function to handle the editor
   function handleEditorDidMount(editor, monaco) {
     editorRef.current = editor;
   }
 
+  //Function to handle the editorvalue
   function getEditorValue() {
     alert(editorRef.current.getValue());
   }
